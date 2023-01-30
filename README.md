@@ -1,5 +1,5 @@
 # SociOut
-A MERN stack based project on social media application. It is completely working project. Its' completely responsive application. MongoDB Express React Redux NodeJs are user in this project.
+A Responsive MERN stack based project on social media application. It is completely working project. Its' completely responsive application. MongoDB Express React Redux NodeJs are user in this project.
 
 ### Featurs included in this project:
 #### user features:
@@ -60,4 +60,12 @@ comment on posts.
 <img width="960" alt="Screenshot 2023-01-30 195145" src="https://user-images.githubusercontent.com/98954425/215503255-09eb5276-59c6-4d17-a2f9-b9b0d2671c4c.png">
 <img width="960" alt="Screenshot 2023-01-30 195205" src="https://user-images.githubusercontent.com/98954425/215503268-2988934c-b65f-428f-83e7-f625fc99d347.png">
 <img width="686" alt="Screenshot 2023-01-30 195228" src="https://user-images.githubusercontent.com/98954425/215503273-611cc39f-5123-406a-9242-80dd58bac6e1.png">
-
+<img width="953" alt="Screenshot 2023-01-30 205132" src="https://user-images.githubusercontent.com/98954425/215519048-8defa9e6-4657-45c1-85e5-365d42<img width="672" alt="Screenshot 2023-01-30 205146" src="https://user-images.githubusercontent.com/98954425/215519088-de9182d6-9ac3-4424-b18c-61a0aac5a9c0.png">
+56abc5.png">
+<img width="601" alt="Screenshot 2023-01-30 205202" src="https://user-images.githubusercontent.com/98954425/215519116-05d7456d-1db8-4d6e-b1c3-d0c45a5c089<img width="575" alt="Screenshot 2023-01-30 205214" src="https://user-images.githubusercontent.com/98954425/215519137-963342bc-3189-455a-aef4-8bfb987ce8dd.png">
+8.png">
+<img width="546" alt="Screenshot 2023-01-30 205232" src="https://user-images.githubusercontent.com/98954425/215519167-26b7700c-654b-40d1-a50e-fe79d29558ef.png">
+<img width="476" alt="Screenshot 2023-01-30 205259" src="https://user-images.githubusercontent.com/98954425/215519193-6aa9d134-39a0-476d-b071-03941b<img width="493" alt="Screenshot 2023-01-30 205319" src="https://user-images.githubusercontent.com/98954425/215519218-0310a19c-dcf4-4eda-bd70-495e8931fe66.png">
+09b3aa.png">
+<img width="441" alt="Screenshot 2023-01-30 205352" src="https://user-images.githubusercontent.com/98954425/215519256-85bf308f-55af-43b8-97b8-193297fb0b5f.png">
+<img width="448" alt="Screenshot 2023-01-30 205420" src="https://user-images.githubusercontent.com/98954425/215519283-763a9183-dd4d-4174-b758-23574056cfc7.png">
