@@ -1,5 +1,5 @@
 # SociOut
-A Social Networking MERN stack fully responsive Project. It is completely working project. Its' completely responsive application. MongoDB Express React Redux NodeJs are user in this project.
+##### A Social Networking MERN stack fully responsive Project. It is completely working project.
 
 ### Featurs included in this project:
 #### user features:
