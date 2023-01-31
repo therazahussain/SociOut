@@ -52,8 +52,7 @@ comment on posts.
 ### Output
 
 <img width="960" alt="Screenshot 2023-01-30 194921" src="https://user-images.githubusercontent.com/98954425/215503186-e2feb252-721c-4649-ab25-52f4b92ceaa1.png">
-<img width="960" alt="Screenshot 2023-01-30 194934" src="https://user-images.githubusercontent.com/98954425/215503201-b450c05d-b542-4584-b041-96315c8c369d.png"> <img width="267" alt="Screenshot 2023-01-30 195009" src="https://user-images.githubusercontent.com/98954425/215503208-9987980f-c662-4a81-ada4-92a135ebcfb1.png">
-<img width="252" alt="Screenshot 2023-01-30 195028" src="https://user-images.githubusercontent.com/98954425/215503218-281720f1-30af-4cd2-823f-737371d2c722.png">
+<img width="960" alt="Screenshot 2023-01-30 194934" src="https://user-images.githubusercontent.com/98954425/215503201-b450c05d-b542-4584-b041-96315c8c369d.png"> <img width="267" alt="Screenshot 2023-01-30 195009" src="https://user-images.githubusercontent.com/98954425/215503208-9987980f-c662-4a81-ada4-92a135ebcfb1.png"><img width="252" alt="Screenshot 2023-01-30 195028" src="https://user-images.githubusercontent.com/98954425/215503218-281720f1-30af-4cd2-823f-737371d2c722.png">
 <img width="960" alt="Screenshot 2023-01-30 195041" src="https://user-images.githubusercontent.com/98954425/215503231-2c418fde-81e8-40e9-b48b-dae144ec7c30.png">
 <img width="960" alt="Screenshot 2023-01-30 195059" src="https://user-images.githubusercontent.com/98954425/215503240-9c9332ac-ba63-45a2-840c-ea42bf3ddbfb.png">
 <img width="960" alt="Screenshot 2023-01-30 195128" src="https://user-images.githubusercontent.com/98954425/215503245-c8b573d3-d8b7-4e8a-b879-d5a109554357.png">
