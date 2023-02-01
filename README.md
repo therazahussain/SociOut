@@ -43,11 +43,10 @@ comment on posts.
 2. include MongoDB database link in .env file.
 3. Clone this repository
 4. Open command line in the cloned folder,
-5. To install dependencies for backend, run npm install in main folder.
-6. To run backend type command node server in main folder.
-7. To install dependencies for frontend , run npm install in /client folder.
-8. To run frontend type command npm start in /client folder.
-9. Open localhost:3000 in the browser. And application will be up and running. Here are some images of application:
+5. To install dependencies for both frontend and backend, run npm install in each of the folder folder.
+6. To run backend went to backend folder in the terminal and type command npm start in the folder.
+7.  To run frontend went to frontend folder in the terminal and type command npm start in the folder.
+8. Open localhost:3000 in the browser. And application will be up and running. Here are some images of application:
 
 ### Output
 
