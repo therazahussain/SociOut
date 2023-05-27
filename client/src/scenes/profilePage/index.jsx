@@ -16,6 +16,8 @@ const ProfilePage = () => {
   const isNonMobileScreens = useMediaQuery("(min-width:1000px)");
   const loggedinUser = useSelector((state) => state.user);
 
+  console.log(loggedinUser)
+
 
   const getUser = async () => {
     const response = await fetch(`http://localhost:3001/users/${userId}`, {

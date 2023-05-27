@@ -77,9 +77,9 @@ const Contact = () => {
             <Box>
                 <FlexBetween>
                     <Box
-                        width={isNonMobileScreens ? "40%" : "93%"}
+                        width={isNonMobileScreens ? "40%" : "80%"}
                         p="2rem"
-                        m="4rem auto"
+                        m="2rem auto"
                         borderRadius="1.5rem"
                         backgroundColor={theme.palette.background.alt}
                     >
@@ -87,7 +87,7 @@ const Contact = () => {
                             <Typography fontFamily="Rubik sans-serif" fontWeight="bold" fontSize="32px" color="primary">
                                 Contact Us
                             </Typography>
-                            <Typography fontFamily="Rubik sans-serif" fontSize="20px" color="primary">
+                            <Typography fontFamily="Rubik sans-serif" fontSize="12px" color="primary">
                                 Write Down your Query we will get back to you Soon!
                             </Typography>
                         </Box>
@@ -95,7 +95,7 @@ const Contact = () => {
                         <form ref={form} onSubmit={formik.handleSubmit}>
                             <Box
                                 display="grid"
-                                gap="1rem"
+                                gap="0.5rem"
                                 gridTemplateColumns="repeat(4, minmax(0, 1fr))"
                                 sx={{
                                     "& > div": { gridColumn: isNonMobile ? undefined : "span 4" },
@@ -156,7 +156,7 @@ const Contact = () => {
                                     type="submit"
                                     sx={{
                                         float: "right",
-                                        m: ".5rem 0",
+                                        m: "0",
                                         p: "1rem",
                                         backgroundColor: palette.primary.main,
                                         color: palette.background.alt,

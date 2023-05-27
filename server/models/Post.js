@@ -26,14 +26,20 @@ const postSchema = mongoose.Schema(
       type: Map,
       of: Boolean,
     },
-    comments: [{
-      comment:{type: String},
-      postedBy:{
-        username:{type: String,},
-        picturePath:{type: String},
-        userId:{type: String}
-      }
-    }],
+    comments: [
+      {
+        comment: { type: String },
+        postedBy: {
+          username: { type: String },
+          picturePath: { type: String },
+          userId: { type: String },
+        },
+      },
+    ],
+    reports: {
+      type: Map,
+      of: Boolean,
+    },
   },
   { timestamps: true }
 );

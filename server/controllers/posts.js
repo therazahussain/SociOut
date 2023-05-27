@@ -18,6 +18,7 @@ export const createPost = async (req, res) => {
       picturePath,
       likes: {},
       comments: [],
+      reports: {},
     });
     await newPost.save();
 
@@ -58,6 +59,7 @@ export const likePost = async (req, res) => {
     const { userId } = req.body;
     const post = await Post.findById(id);
     const isLiked = post.likes.get(userId);
+    console.log(isLiked);
 
     if (isLiked) {
       post.likes.delete(userId);
@@ -68,6 +70,34 @@ export const likePost = async (req, res) => {
     const updatedPost = await Post.findByIdAndUpdate(
       id,
       { likes: post.likes },
+      { new: true }
+    );
+
+    res.status(200).json(updatedPost);
+  } catch (err) {
+    res.status(404).json({ message: err.message });
+  }
+};
+
+
+/* UPDATE */
+export const reportPost = async (req, res) => {
+
+  try {
+    const { id } = req.params;
+    const { userId } = req.body;
+    const post = await Post.findById(id);
+    const isReported = post.reports.get(userId);
+
+    if (isReported) {
+      post.reports.delete(userId);
+    } else {
+      post.reports.set(userId, true);
+    }
+
+    const updatedPost = await Post.findByIdAndUpdate(
+      id,
+      { reports: post.reports },
       { new: true }
     );
 

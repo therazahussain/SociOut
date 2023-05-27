@@ -4,6 +4,7 @@ const initialState = {
   mode: "dark",
   user: null,
   token: null,
+  admin:null,
   posts: [],
   popUpContent: {
     title: "",
@@ -24,6 +25,9 @@ export const authSlice = createSlice({
     },
     setUser:(state,action)=> {
       state.user = action.payload; 
+    },
+    setAdmin:(state,action)=> {
+      state.admin = action.payload; 
     },
     setAlertOpen: (state,action) => {
       state.alertOpen = action.payload;
@@ -67,6 +71,6 @@ export const authSlice = createSlice({
   },
 });
 
-export const { setMode, setLogin, setLogout, setFriends, setPosts, setPost, setPopUpContent, setAlertOpen, setActivePage, setUser, setAlertDelete } =
+export const { setMode, setLogin, setLogout, setFriends, setPosts, setPost, setPopUpContent, setAlertOpen, setActivePage, setUser, setAlertDelete, setAdmin } =
   authSlice.actions;
 export default authSlice.reducer;

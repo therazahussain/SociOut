@@ -10,44 +10,40 @@ import {
   useTheme,
   useMediaQuery,
   Divider,
+  Tooltip,
 } from "@mui/material";
-import {
-  DarkMode,
-  LightMode,
-  Help,
-  Menu,
-  Close,
-} from "@mui/icons-material";
+import { DarkMode, LightMode, Help, Menu, Close } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
 import { setMode, setLogout } from "state";
 import { useNavigate } from "react-router-dom";
 import FlexBetween from "components/FlexBetween";
-import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
-import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
-import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
-import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
-import HomeIcon from '@mui/icons-material/Home';
+import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
+import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
+import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
+import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
+import HomeIcon from "@mui/icons-material/Home";
 import SearchComponent from "components/SearchComponent";
-import PersonIcon from '@mui/icons-material/Person';
+import PersonIcon from "@mui/icons-material/Person";
+import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 
 const Navbar = () => {
   const [isMobileMenuToggled, setIsMobileMenuToggled] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const user = useSelector((state) => state.user);
   const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
-  const userId = useSelector((state) => state.user._id)
+  const userId = useSelector((state) => state.user._id);
+  const user = useSelector((state) => state.user);
 
   const theme = useTheme();
   const dark = theme.palette.neutral.dark;
   const background = theme.palette.background.default;
   const primaryLight = theme.palette.primary;
   const alt = theme.palette.background.alt;
-
   const userName = user.userName;
 
-  const id = useSelector((state) => state.user._id)
+  const admin = useSelector((state) => state.admin);
 
+  const id = useSelector((state) => state.user._id);
 
   return (
     <FlexBetween padding="1rem 6%" backgroundColor={alt}>
@@ -76,67 +72,122 @@ const Navbar = () => {
       {/* DESKTOP NAV */}
       {isNonMobileScreens ? (
         <FlexBetween gap="2rem">
-
           {/* Home page navigation */}
-          <IconButton onClick={() => navigate(`/home`)} >
-            {
-              theme.palette.mode === "dark" ?
+          <Tooltip title="Home Page">
+            <IconButton onClick={() => navigate(`/home`)}>
+              {theme.palette.mode === "dark" ? (
                 <HomeIcon sx={{ fontSize: "25px" }} />
-                :
+              ) : (
                 <HomeIcon sx={{ color: dark, fontSize: "25px" }} />
-            }
-          </IconButton>
+              )}
+            </IconButton>
+          </Tooltip>
 
           {/* Mode changing button  */}
-          <IconButton onClick={() => dispatch(setMode())}>
-            {theme.palette.mode === "dark" ? (
-              <DarkMode sx={{ fontSize: "25px" }} />
-            ) : (
-              <LightMode sx={{ color: dark, fontSize: "25px" }} />
-            )}
-          </IconButton>
+          <Tooltip title="Mode">
+            <IconButton onClick={() => dispatch(setMode())}>
+              {theme.palette.mode === "dark" ? (
+                <DarkMode sx={{ fontSize: "25px" }} />
+              ) : (
+                <LightMode sx={{ color: dark, fontSize: "25px" }} />
+              )}
+            </IconButton>
+          </Tooltip>
 
           {/* Profile navigation button */}
-          <IconButton>
-            {
-              theme.palette.mode === "dark" ? <PersonIcon sx={{ fontSize: "25px" }} onClick={() => navigate(`/profile/${userId}`)} /> : <PersonIcon sx={{ color: dark, fontSize: "25px" }} onClick={() => navigate(`/profile/${userId}`)} />
-            }
-          </IconButton>
+          <Tooltip title="My Profile">
+            <IconButton>
+              {theme.palette.mode === "dark" ? (
+                <PersonIcon
+                  sx={{ fontSize: "25px" }}
+                  onClick={() => navigate(`/profile/${userId}`)}
+                />
+              ) : (
+                <PersonIcon
+                  sx={{ color: dark, fontSize: "25px" }}
+                  onClick={() => navigate(`/profile/${userId}`)}
+                />
+              )}
+            </IconButton>
+          </Tooltip>
 
           {/* contact page navigation */}
-          <IconButton onClick={() => navigate(`/contact`)} >
-            {
-              theme.palette.mode === "dark" ?
+          <Tooltip title="Contact Page">
+            <IconButton onClick={() => navigate(`/contact`)}>
+              {theme.palette.mode === "dark" ? (
                 <Help sx={{ fontSize: "25px" }} />
-                :
+              ) : (
                 <Help sx={{ color: dark, fontSize: "25px" }} />
-            }
-          </IconButton>
+              )}
+            </IconButton>
+          </Tooltip>
+
+          {admin && (
+            <Tooltip title="Admin Page">
+              <IconButton onClick={() => navigate(`/admin`)}>
+                {theme.palette.mode === "dark" ? (
+                  <AdminPanelSettingsIcon sx={{ fontSize: "25px" }} />
+                ) : (
+                  <AdminPanelSettingsIcon
+                    sx={{ color: dark, fontSize: "25px" }}
+                  />
+                )}
+              </IconButton>
+            </Tooltip>
+          )}
+
           <FormControl value={userName}>
-            <Select
-              value={userName}
-              input={<InputBase />}
-            >
-              <Typography value={userName} style={{ display: "none", marginTop: "3rem" }} >{userName}</Typography>
+            <Select value={userName} input={<InputBase />}>
+              <Typography
+                value={userName}
+                style={{ display: "none", marginTop: "3rem" }}
+              >
+                {userName}
+              </Typography>
 
               <FlexBetween>
-                <MenuItem sx={{ width: "100%" }} onClick={() => navigate(`/profile/${userId}`)} ><PersonOutlineOutlinedIcon style={{ margin: "1rem 1rem 1rem 0" }} />My Profile</MenuItem>
+                <MenuItem
+                  sx={{ width: "100%" }}
+                  onClick={() => navigate(`/profile/${userId}`)}
+                >
+                  <PersonOutlineOutlinedIcon
+                    style={{ margin: "1rem 1rem 1rem 0" }}
+                  />
+                  My Profile
+                </MenuItem>
               </FlexBetween>
 
-              <FlexBetween >
-                <MenuItem sx={{ width: "100%" }} onClick={() => navigate(`/${id}/updateUser`)} ><EditOutlinedIcon style={{ margin: "1rem 1rem 1rem 0" }} /> Edit Profile</MenuItem>
+              <FlexBetween>
+                <MenuItem
+                  sx={{ width: "100%" }}
+                  onClick={() => navigate(`/${id}/updateUser`)}
+                >
+                  <EditOutlinedIcon style={{ margin: "1rem 1rem 1rem 0" }} />{" "}
+                  Edit Profile
+                </MenuItem>
               </FlexBetween>
 
-              <FlexBetween >
-                <MenuItem sx={{ width: "100%" }} onClick={() => navigate(`/users/${id}/deleteUser`)}><DeleteOutlinedIcon style={{ margin: "1rem 1rem 1rem 0" }} /> Delete Account</MenuItem>
+              <FlexBetween>
+                <MenuItem
+                  sx={{ width: "100%" }}
+                  onClick={() => navigate(`/users/${id}/deleteUser`)}
+                >
+                  <DeleteOutlinedIcon style={{ margin: "1rem 1rem 1rem 0" }} />{" "}
+                  Delete Account
+                </MenuItem>
               </FlexBetween>
 
               <Divider />
 
-              <FlexBetween >
-                <MenuItem sx={{ width: "100%" }} onClick={() => dispatch(setLogout())}><LogoutOutlinedIcon style={{ margin: "1rem 1rem 1rem 0" }} /> Log Out </MenuItem>
+              <FlexBetween>
+                <MenuItem
+                  sx={{ width: "100%" }}
+                  onClick={() => dispatch(setLogout())}
+                >
+                  <LogoutOutlinedIcon style={{ margin: "1rem 1rem 1rem 0" }} />{" "}
+                  Log Out{" "}
+                </MenuItem>
               </FlexBetween>
-
             </Select>
           </FormControl>
         </FlexBetween>
@@ -177,14 +228,24 @@ const Navbar = () => {
             alignItems="center"
             gap="3rem"
           >
+            {admin && (
+              <IconButton onClick={() => navigate(`/admin`)}>
+                {theme.palette.mode === "dark" ? (
+                  <AdminPanelSettingsIcon sx={{ fontSize: "25px" }} />
+                ) : (
+                  <AdminPanelSettingsIcon
+                    sx={{ color: dark, fontSize: "25px" }}
+                  />
+                )}
+              </IconButton>
+            )}
 
-            <IconButton onClick={() => navigate(`/home`)} >
-              {
-                theme.palette.mode === "dark" ?
-                  <HomeIcon sx={{ fontSize: "25px" }} />
-                  :
-                  <HomeIcon sx={{ color: dark, fontSize: "25px" }} />
-              }
+            <IconButton onClick={() => navigate(`/home`)}>
+              {theme.palette.mode === "dark" ? (
+                <HomeIcon sx={{ fontSize: "25px" }} />
+              ) : (
+                <HomeIcon sx={{ color: dark, fontSize: "25px" }} />
+              )}
             </IconButton>
 
             <IconButton
@@ -197,36 +258,64 @@ const Navbar = () => {
                 <LightMode sx={{ color: dark, fontSize: "25px" }} />
               )}
             </IconButton>
-            <IconButton><PersonIcon sx={{ fontSize: "25px" }} onClick={() => navigate(`/profile/${userId}`)} /></IconButton>
-            <IconButton onClick={() => navigate(`/contact`)} >
-              {
-                theme.palette.mode === "dark" ?
-                  <Help sx={{ fontSize: "25px" }} />
-                  :
-                  <Help sx={{ color: dark, fontSize: "25px" }} />
-              }
+            <IconButton>
+              <PersonIcon
+                sx={{ fontSize: "25px" }}
+                onClick={() => navigate(`/profile/${userId}`)}
+              />
+            </IconButton>
+            <IconButton onClick={() => navigate(`/contact`)}>
+              {theme.palette.mode === "dark" ? (
+                <Help sx={{ fontSize: "25px" }} />
+              ) : (
+                <Help sx={{ color: dark, fontSize: "25px" }} />
+              )}
             </IconButton>
             <FormControl value={userName}>
-              <Select
-                value={userName}
-                input={<InputBase />}
-              >
-                <Typography value={userName} style={{ display: "none", marginTop: "3rem" }} >{userName}</Typography>
+              <Select value={userName} input={<InputBase />}>
+                <Typography
+                  value={userName}
+                  style={{ display: "none", marginTop: "3rem" }}
+                >
+                  {userName}
+                </Typography>
 
                 <FlexBetween>
-                  <MenuItem sx={{ width: "100%" }} onClick={() => navigate(`/profile/${userId}`)} ><PersonOutlineOutlinedIcon style={{ margin: "1rem" }} />My Profile</MenuItem>
+                  <MenuItem
+                    sx={{ width: "100%" }}
+                    onClick={() => navigate(`/profile/${userId}`)}
+                  >
+                    <PersonOutlineOutlinedIcon style={{ margin: "1rem" }} />
+                    My Profile
+                  </MenuItem>
                 </FlexBetween>
 
-                <FlexBetween >
-                  <MenuItem sx={{ width: "100%" }} onClick={() => navigate(`/${id}/updateUser`)} ><EditOutlinedIcon style={{ margin: "1rem" }} /> Edit Profile</MenuItem>
+                <FlexBetween>
+                  <MenuItem
+                    sx={{ width: "100%" }}
+                    onClick={() => navigate(`/${id}/updateUser`)}
+                  >
+                    <EditOutlinedIcon style={{ margin: "1rem" }} /> Edit Profile
+                  </MenuItem>
                 </FlexBetween>
 
-                <FlexBetween >
-                  <MenuItem sx={{ width: "100%" }} onClick={() => dispatch(setLogout())}><LogoutOutlinedIcon style={{ margin: "1rem" }} /> Log Out </MenuItem>
+                <FlexBetween>
+                  <MenuItem
+                    sx={{ width: "100%" }}
+                    onClick={() => dispatch(setLogout())}
+                  >
+                    <LogoutOutlinedIcon style={{ margin: "1rem" }} /> Log Out{" "}
+                  </MenuItem>
                 </FlexBetween>
 
-                <FlexBetween >
-                  <MenuItem sx={{ width: "100%" }} onClick={() => navigate(`/users/${id}/deleteUser`)}><DeleteOutlinedIcon style={{ margin: "1rem" }} /> Delete Account</MenuItem>
+                <FlexBetween>
+                  <MenuItem
+                    sx={{ width: "100%" }}
+                    onClick={() => navigate(`/users/${id}/deleteUser`)}
+                  >
+                    <DeleteOutlinedIcon style={{ margin: "1rem" }} /> Delete
+                    Account
+                  </MenuItem>
                 </FlexBetween>
               </Select>
             </FormControl>

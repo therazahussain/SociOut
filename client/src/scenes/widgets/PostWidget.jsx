@@ -21,6 +21,7 @@ const PostWidget = ({
   userPicturePath,
   likes,
   comments,
+  reports
 }) => {
   const dispatch = useDispatch();
   const token = useSelector((state) => state.token);
@@ -55,6 +56,7 @@ const PostWidget = ({
         username={username}
         subtitle={location}
         userPicturePath={userPicturePath}
+        reports={reports}
       />
 
       <div style={{ margin: "1.5rem 0" }}>

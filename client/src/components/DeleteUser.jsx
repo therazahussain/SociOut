@@ -109,17 +109,17 @@ const DeleteUser = () => {
             <Box>
                 <FlexBetween>
                     <Box
-                        width={isNonMobileScreens ? "40%" : "93%"}
+                        width={isNonMobileScreens ? "40%" : "80%"}
                         p="2rem"
-                        m="2rem auto"
+                        m={isNonMobileScreens ? "1.5rem auto" :"5rem auto" }
                         borderRadius="1.5rem"
                         backgroundColor={theme.palette.background.alt}
                     >
-                        <Box sx={{ mb: "1.5rem", textAlign: "center" }}>
+                        <Box sx={{ mb: "1rem", textAlign: "center" }}>
                             <Typography fontFamily="Rubik sans-serif" fontWeight="bold" fontSize="32px" color="primary">
                                 Delete Account
                             </Typography>
-                            <Typography fontFamily="Rubik sans-serif" fontWeight="bold" fontSize="20px" color="primary">
+                            <Typography fontFamily="Rubik sans-serif" fontWeight="bold" fontSize="12px" color="primary">
                                 Enter The Password To delete Your Account Permanently
                             </Typography>
                         </Box>

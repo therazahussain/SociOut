@@ -34,6 +34,7 @@ export const register = async (req, res) => {
       occupation,
       twitter,
       linkedin,
+      reports: {},
       viewedProfile: Math.floor(Math.random() * 10000),
       impressions: Math.floor(Math.random() * 10000),
     });
@@ -46,7 +47,6 @@ export const register = async (req, res) => {
       { userName: userName },
       { email: email }
     ]});
-    // const userUserName = await User.findOne({ userName });
 
 
     if (user) {

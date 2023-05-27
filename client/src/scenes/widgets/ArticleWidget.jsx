@@ -97,7 +97,7 @@ export default function ArticleWidget({ handlePost }) {
                             }} />
 
                         <Button onClick={handleSubmit}
-                            disabled = {article.length < 120}
+                            disabled = {article.length < 50}
                             sx={{
                                 height: "2.5rem",
                                 color: palette.background.alt,

@@ -10,11 +10,15 @@ import { themeSettings } from "./theme";
 import EditProfileForm from "scenes/widgets/EditProfileForm";
 import DeleteUser from "components/DeleteUser";
 import Contact from "scenes/contactPage";
+import Admin from "scenes/admin/Admin";
 
 function App() {
   const mode = useSelector((state) => state.mode);
   const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
   const isAuth = Boolean(useSelector((state) => state.token));
+  const admin = useSelector((state)=> state.admin);
+
+  console.log(admin)
 
   return (
     <div className="app">
@@ -26,6 +30,10 @@ function App() {
             <Route
               path="/"
               element={!isAuth ? <LoginPage /> : <Navigate to="/home" />}
+            />
+            <Route
+              path="/admin"
+              element={(isAuth && admin) ? <Admin /> : <Navigate to="/home" />}
             />
             <Route
               path="/home"

@@ -1,4 +1,4 @@
-import { IconButton, InputBase, Typography } from '@mui/material'
+import { Box, IconButton, InputBase, Typography } from '@mui/material'
 import React from 'react'
 import FlexBetween from './FlexBetween'
 import {
@@ -54,22 +54,21 @@ const SearchComponent = () => {
             </FlexBetween>
             {searchUser && <FlexBetween backgroundColor={neutralLight} style={{
                 flexDirection: "column",
-                // padding:"1rem",
-                minHeight: "100px", position: "absolute", top: "4rem", width: "18rem", borderRadius: "9px", padding: "1rem", maxHeight: "250px", overflowY: "scroll",
+                minHeight: "100px", position: "absolute", top: "4rem", width: "18rem", borderRadius: "9px", maxHeight: "250px", overflowY: "scroll",
                 alignItems: "start",
             }}>
                 {userDetails.map((user) => (
                     <div key={user._id}
-                        width="100%"
+                        width="18rem"
                         onClick={() => {
                             setSearchUser("");
                             navigate(`/profile/${user._id}`);
                             navigate(0);  
                           }}
                     >
-                        <FlexBetween style={{ gap: "1rem", width: "100%", padding: "1rem 0" }} sx={{
+                        <FlexBetween style={{ gap: "1rem", width: "18rem", padding: "1rem", justifyContent: "start" }} sx={{
                             "&:hover": {
-                                color: theme.palette.primary.light,
+                                backgroundColor: theme.palette.primary.light,
                                 cursor: "pointer",
                             }
                         }}>

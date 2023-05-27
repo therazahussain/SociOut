@@ -12,7 +12,7 @@ import * as yup from "yup";
 import { FieldContainer, FieldError } from 'components/FormMessage';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { setActivePage, setAlertOpen, setLogin, setPopUpContent } from 'state';
+import { setActivePage, setAdmin, setAlertOpen, setLogin, setPopUpContent } from 'state';
 import AlertBox from '../../components/AlertBox';
 
 
@@ -51,6 +51,9 @@ const LoginForm = () => {
                         user: loggedIn.user,
                         token: loggedIn.token,
                     })
+                );
+                dispatch(
+                    setAdmin(loggedIn.user.admin)
                 );
                 navigate("/home")
             }

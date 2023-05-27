@@ -39,6 +39,14 @@ const UserSchema = new mongoose.Schema(
       type: Array,
       default: [],
     },
+    admin:{
+      type: Boolean,
+      default:false
+    },
+    reports: {
+      type: Map,
+      of: Boolean,
+    },
     location: String,
     occupation: String,
     twitter:String,
