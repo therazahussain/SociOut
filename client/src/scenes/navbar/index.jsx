@@ -25,6 +25,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import SearchComponent from "components/SearchComponent";
 import PersonIcon from "@mui/icons-material/Person";
 import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
+import { useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMobileMenuToggled, setIsMobileMenuToggled] = useState(false);
@@ -33,6 +34,9 @@ const Navbar = () => {
   const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
   const userId = useSelector((state) => state.user._id);
   const user = useSelector((state) => state.user);
+  const location = useLocation();
+  const currentUrl = location.pathname;
+
 
   const theme = useTheme();
   const dark = theme.palette.neutral.dark;
@@ -63,7 +67,7 @@ const Navbar = () => {
         >
           SociOut
         </Typography>
-        {isNonMobileScreens && (
+        {(isNonMobileScreens && currentUrl !== "/admin") && (
           <SearchComponent />
           // <ComboBox/>
         )}
