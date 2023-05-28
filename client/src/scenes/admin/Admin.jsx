@@ -180,7 +180,7 @@ const Admin = () => {
             sx={{
               borderRadius: "5px",
               backgroundColor:show === "dashboard" ? theme.palette.primary.light: neutralLight,
-              cursor: "pointer",
+              cursor: "pointer" ,
               "&:hover": {
                 backgroundColor: theme.palette.primary.light,
                 cursor: "pointer",
