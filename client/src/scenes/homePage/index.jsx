@@ -6,8 +6,20 @@ import MyPostWidget from "scenes/widgets/MyPostWidget";
 import PostsWidget from "scenes/widgets/PostsWidget";
 import AdvertWidget from "scenes/widgets/AdvertWidget";
 import FriendListWidget from "scenes/widgets/FriendListWidget";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const HomePage = () => {
+
+  const navigate = useNavigate();
+  const block = useSelector((state)=> state.block)
+
+  useEffect(()=> {
+    if(block){
+      navigate("/contact")
+    }
+  }, [])
+
   const isNonMobileScreens = useMediaQuery("(min-width:1000px)");
   const { _id, picturePath } = useSelector((state) => state.user);
 

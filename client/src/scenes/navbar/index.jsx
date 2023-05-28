@@ -50,7 +50,7 @@ const Navbar = () => {
   const id = useSelector((state) => state.user._id);
 
   return (
-    <FlexBetween padding="1rem 6%" backgroundColor={alt}>
+    <FlexBetween padding="1rem 6%" backgroundColor={alt} sx={{position:"sticky", top:"0", width:"100%", zIndex:"30"}}>
       <FlexBetween gap="1.75rem">
         <Typography
           fontWeight="bold"

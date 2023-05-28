@@ -43,9 +43,9 @@ const UserSchema = new mongoose.Schema(
       type: Boolean,
       default:false
     },
-    reports: {
-      type: Map,
-      of: Boolean,
+    block:{
+      type: Boolean,
+      default:false
     },
     location: String,
     occupation: String,

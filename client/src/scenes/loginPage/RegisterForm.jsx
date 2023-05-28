@@ -74,10 +74,10 @@ const initialValuesRegister = {
     firstName: "",
     lastName: "",
     email: "",
-    location: "",
-    occupation: "",
-    twitter: "",
-    linkedin: "",
+    location: "Not Specified",
+    occupation: "Not Specified",
+    twitter: "Not Specified",
+    linkedin: "Not Specified",
     password: "",
     confirmPassword: "",
     picture: "",
@@ -207,12 +207,12 @@ const RegisterForm = () => {
                         </FieldError>
                     </FieldContainer>
 
-                    <FieldContainer style={{ gridColumn: "span 4" }}>
+                    <FieldContainer style={{ gridColumn: "span 2" }}>
                         <TextField
                             label="Username"
                             name="userName"
                             autoComplete="new-password"
-                            sx={{ gridColumn: "span 4" }}
+                            sx={{ gridColumn: "span 2" }}
                             value={formik.values.userName}
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
@@ -224,13 +224,13 @@ const RegisterForm = () => {
                         </FieldError>
                     </FieldContainer>
 
-                    <FieldContainer>
+                    <FieldContainer style={{ gridColumn: "span 2" }}>
                         <TextField
                             label="Email"
                             name="email"
                             autoComplete="new-password"
                             type="email"
-                            sx={{ gridColumn: "span 4" }}
+                            sx={{ gridColumn: "span 2" }}
                             value={formik.values.email}
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
@@ -242,7 +242,7 @@ const RegisterForm = () => {
                         </FieldError>
                     </FieldContainer>
 
-                    <FieldContainer style={{ gridColumn: "span 2" }}>
+                    {/* <FieldContainer style={{ gridColumn: "span 2" }}>
                         <TextField
                             label="Occupaation"
                             name="occupation"
@@ -257,9 +257,9 @@ const RegisterForm = () => {
                                 ? formik.errors.occupation
                                 : ""}
                         </FieldError>
-                    </FieldContainer>
+                    </FieldContainer> */}
 
-                    <FieldContainer style={{ gridColumn: "span 2" }}>
+                    {/* <FieldContainer style={{ gridColumn: "span 2" }}>
                         <TextField
                             label="Location"
                             name="location"
@@ -274,7 +274,7 @@ const RegisterForm = () => {
                                 ? formik.errors.location
                                 : ""}
                         </FieldError>
-                    </FieldContainer>
+                    </FieldContainer> */}
 
                     <FieldContainer>
                         <Box
@@ -322,7 +322,7 @@ const RegisterForm = () => {
                         </FieldError>
                     </FieldContainer>
 
-                    <FieldContainer style={{ gridColumn: "span 2" }}>
+                    {/* <FieldContainer style={{ gridColumn: "span 2" }}>
                         <TextField
                             label="Linkedin Profile"
                             name="linkedin"
@@ -337,9 +337,9 @@ const RegisterForm = () => {
                                 ? formik.errors.linkedin
                                 : ""}
                         </FieldError>
-                    </FieldContainer>
+                    </FieldContainer> */}
 
-                    <FieldContainer style={{ gridColumn: "span 2" }}>
+                    {/* <FieldContainer style={{ gridColumn: "span 2" }}>
                         <TextField
                             label="Twitter Profile"
                             name="twitter"
@@ -354,15 +354,15 @@ const RegisterForm = () => {
                                 ? formik.errors.twitter
                                 : ""}
                         </FieldError>
-                    </FieldContainer>
+                    </FieldContainer> */}
 
-                    <FieldContainer>
+                    <FieldContainer style={{ gridColumn: "span 2" }}>
                         <TextField
                             label="Password"
                             type="password"
                             name="password"
                             autoComplete="new-password"
-                            sx={{ gridColumn: "span 4" }}
+                            sx={{ gridColumn: "span 2" }}
                             value={formik.values.password}
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
@@ -374,13 +374,13 @@ const RegisterForm = () => {
                         </FieldError>
                     </FieldContainer>
 
-                    <FieldContainer>
+                    <FieldContainer style={{ gridColumn: "span 2" }}>
                         <TextField
                             label="Confirm Password"
                             type="password"
                             name="confirmPassword"
                             autoComplete="new-password"
-                            sx={{ gridColumn: "span 4" }}
+                            sx={{ gridColumn: "span 2" }}
                             value={formik.values.confirmPassword}
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}

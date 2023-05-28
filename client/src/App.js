@@ -17,8 +17,9 @@ function App() {
   const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
   const isAuth = Boolean(useSelector((state) => state.token));
   const admin = useSelector((state)=> state.admin);
+  const block = useSelector((state)=> state.block);
 
-  console.log(admin)
+  console.log(block)
 
   return (
     <div className="app">
@@ -33,27 +34,27 @@ function App() {
             />
             <Route
               path="/admin"
-              element={(isAuth && admin) ? <Admin /> : <Navigate to="/home" />}
+              element={(isAuth && admin) ?(isAuth && block) ? <Contact/> :  <Admin /> : <Navigate to="/home" />}
             />
             <Route
               path="/home"
-              element={isAuth ? <HomePage /> : <Navigate to="/" />}
+              element={isAuth ? (isAuth && block) ? <Contact/> : <HomePage /> : <Navigate to="/" />}
             />
             <Route
               path="/contact"
-              element={isAuth ? <Contact /> : <Navigate to="/" />}
+              element={isAuth ? (isAuth && block) ? <Contact/> : <Contact /> : <Navigate to="/" />}
             />
             <Route
               path="/profile/:userId"
-              element={isAuth ? <ProfilePage /> : <Navigate to="/" />}
+              element={isAuth ? (isAuth && block) ? <Contact/> : <ProfilePage /> : <Navigate to="/" />}
             />
             <Route
               path="/:id/updateUser"
-              element={isAuth ? <EditProfileForm /> : <Navigate to="/" />}
+              element={isAuth ? (isAuth && block) ? <Contact/> : <EditProfileForm /> : <Navigate to="/" />}
             />
             <Route
               path="/users/:id/deleteUser"
-              element={isAuth ? <DeleteUser /> : <Navigate to="/" />}
+              element={isAuth ? (isAuth && block) ? <Contact/> :<DeleteUser /> : <Navigate to="/" />}
             />
           </Routes>
         </ThemeProvider>

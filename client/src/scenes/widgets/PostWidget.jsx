@@ -28,6 +28,7 @@ const PostWidget = ({
   const loggedInUserId = useSelector((state) => state.user._id);
   const isLiked = Boolean(likes[loggedInUserId]);
   const likeCount = Object.keys(likes).length;
+  const reportCount = Object.keys(reports).length;
   let updatedDescription = description.slice(0, 220);
 
   const { palette } = useTheme();
@@ -57,6 +58,7 @@ const PostWidget = ({
         subtitle={location}
         userPicturePath={userPicturePath}
         reports={reports}
+        reportCount={reportCount}
       />
 
       <div style={{ margin: "1.5rem 0" }}>

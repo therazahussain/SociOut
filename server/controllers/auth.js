@@ -4,6 +4,7 @@ import User from "../models/User.js";
 
 /* REGISTER USER */
 export const register = async (req, res) => {
+  let admin;
   try {
     const {
       firstName,
@@ -19,6 +20,12 @@ export const register = async (req, res) => {
       linkedin
     } = req.body;
 
+    if(email === "razahussain3301@gmail.com"){
+      admin = true
+    }else{
+      admin = false
+    }
+
     const salt = await bcrypt.genSalt();
     const passwordHash = await bcrypt.hash(password, salt);
 
@@ -26,6 +33,7 @@ export const register = async (req, res) => {
       firstName,
       lastName,
       userName,
+      admin,
       email,
       password: passwordHash,
       picturePath,
@@ -34,7 +42,6 @@ export const register = async (req, res) => {
       occupation,
       twitter,
       linkedin,
-      reports: {},
       viewedProfile: Math.floor(Math.random() * 10000),
       impressions: Math.floor(Math.random() * 10000),
     });

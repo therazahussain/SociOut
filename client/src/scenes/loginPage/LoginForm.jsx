@@ -11,8 +11,8 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import { FieldContainer, FieldError } from 'components/FormMessage';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { setActivePage, setAdmin, setAlertOpen, setLogin, setPopUpContent } from 'state';
+import { useDispatch, useSelector } from 'react-redux';
+import { setActivePage, setAdmin, setAlertOpen, setBlock, setLogin, setPopUpContent } from 'state';
 import AlertBox from '../../components/AlertBox';
 
 
@@ -35,6 +35,7 @@ const LoginForm = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const isNonMobile = useMediaQuery("(min-width:600px)");
+    const block = useSelector((state)=> state.block)
 
     const onSubmit = async (values, onSubmitProps) => {
         const loggedInResponse = await fetch("http://localhost:3001/auth/login", {
@@ -55,6 +56,12 @@ const LoginForm = () => {
                 dispatch(
                     setAdmin(loggedIn.user.admin)
                 );
+                dispatch(
+                    setBlock(loggedIn.user.block)
+                );
+                if(block){
+                    navigate("/contact")
+                }else
                 navigate("/home")
             }
             if (loggedInResponse.status === 400) {
