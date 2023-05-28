@@ -179,6 +179,7 @@ const Admin = () => {
             p={1}
             sx={{
               borderRadius: "5px",
+              backgroundColor:show === "dashboard" ? theme.palette.primary.light: neutralLight,
               cursor: "pointer",
               "&:hover": {
                 backgroundColor: theme.palette.primary.light,
@@ -219,6 +220,7 @@ const Admin = () => {
               p={1}
               justifyContent="center"
               sx={{
+                backgroundColor:show === "admin" ? theme.palette.primary.light:mode === "dark" ? "#757474" : "#bdb9b9",
                 borderRadius: "5px",
                 cursor: "pointer",
                 "&:hover": {
@@ -241,6 +243,7 @@ const Admin = () => {
               p={1}
               justifyContent="center"
               sx={{
+                backgroundColor:show === "users" ? theme.palette.primary.light:mode === "dark" ? "#757474" : "#bdb9b9",
                 borderRadius: "5px",
                 cursor: "pointer",
                 "&:hover": {
@@ -259,10 +262,10 @@ const Admin = () => {
               gap={1}
               width="100%"
               onClick={() => setShow("posts")}
-              backgroundColor={mode === "dark" ? "#757474" : "#bdb9b9"}
               p={1}
               justifyContent="center"
               sx={{
+                backgroundColor:show === "posts" ? theme.palette.primary.light:mode === "dark" ? "#757474" : "#bdb9b9",
                 borderRadius: "5px",
                 cursor: "pointer",
                 "&:hover": {
